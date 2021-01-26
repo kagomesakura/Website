@@ -1,0 +1,20 @@
+print("Monthly Bills with Remaining Balance")
+print("If no payment for the month is required, enter a value of 0")
+print()
+pay = float(input("Monthly Income:$"))
+rent = float(input("Rent:$"))
+cpayment = float(input("Car Payment:$"))
+carinsurance = float(input("Car Insurance:$"))
+internet = float(input("Internet:$"))
+phone = float(input("Phone:$"))
+food = float(input("Food allowance:$"))
+ccards = float(input("Credit Card Payments:$"))
+sloans = float(input("Student Loans:$"))
+misc = float(input("Misc Items:$"))
+
+
+difference = float(pay) - (float(cpayment) + float(carinsurance) + float(internet) + float(phone)
+                           + float(food) + float(rent) + float(ccards) + float(sloans) + float(misc))
+
+print()
+print("The remaining balance is ${:.2f} ""this month.".format(difference))

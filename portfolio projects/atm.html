@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATM Transactions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+    body {
+        background-color: #FFFFFF;
+        color: #000000;
+        /* font: italic 1.2em "Fira Sans", serif; */
+            }
+    #btnpad{
+        padding-top: 250px;
+        padding-right: 7px;
+        padding-bottom: 50px;
+        padding-left: 930px;
+    }
+    #p1 {
+        text-align: center;
+        color: #ffffff;
+        font: italic 1.2em "Fira Sans", serif;
+        text-shadow: 4px 2px 4px #000000;
+        font-size: 55px;
+        position:absolute;
+        left:50%;
+        top:180px;
+        transform:translateX(-50%);
+        z-index:10;
+    }
+    .img {
+  		width: 1330px;
+  		height: 510px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -260px; /* Half the image height */
+      margin-left: -665px; /* Half the image width */
+  		border:2px solid #fff;
+  		background: url("bank.jpg") no-repeat;
+  		-moz-box-shadow: 10px 10px 5px #ccc;
+  		-webkit-box-shadow: 10px 10px 5px #ccc;
+  		box-shadow: 10px 10px 5px #ccc;
+  		-moz-border-radius:25px;
+  		-webkit-border-radius:25px;
+  		border-radius:25px;
+  	}
+    #balance {
+      width: 130px;
+      font-size: 1.5em;
+      background-color: #ffffff
+    }
+  </style>
+</head>
+<body>
+<div class="img">
+<div id="btnpad">
+    <p id="p1"></p>
+    <button class="btn btn-danger" onclick="getElementById('deposit').innerHTML = '$' + myDeposit()">Make A Deposit.</button>
+    <input type="text" id="MakeDeposit"placeholder="$"><br>
+    <!-- <p id=deposit> -->
+    </p>
+
+
+    <button class="btn btn-danger" onclick="getElementById('withdrawal').innerHTML = '$' + myWithdrawal()">Withdrawal.</button>
+    <input type="text" id="MakeWithdrawal" placeholder="$"><br><br>
+    <!-- <p id=withdrawal> -->
+    </p>
+
+
+    <button class="btn btn-danger" onclick="getElementById('balance').innerHTML = '$' + myBalance()">Check Your Balance.</button><br><br>
+    <p id=balance> </p>
+
+    <button class="btn btn-danger" onclick="window.open('https://www.paypal.com/us/webapps/mpp/send-money-online')">Send Money Via Paypal</button>
+
+    <button class="btn btn-danger" onclick="window.open('https://www.zellepay.com')">Send Money Via Zelle</button>
+<script>
+
+    class ATM {
+        constructor(x=0){
+            this.x=x
+        }
+        balance(){
+            return this.x
+        }
+        deposit(cash){
+            this.x=this.x + parseInt(cash)
+        }
+        withdrawal(minus){
+            this.x=this.x - parseInt(minus)
+        }
+    }
+    let machine = new ATM( );
+
+
+    function myDeposit(){
+        document.getElementById("deposit")
+        machine.deposit(document.querySelector("#MakeDeposit").value);
+        return machine.balance();
+
+    }
+    function myWithdrawal(){
+        document.getElementById("withdrawal")
+        machine.withdrawal(document.querySelector("#MakeWithdrawal").value);
+        return machine.balance();
+    }
+    function myBalance() {
+        document.getElementById("balance")
+        return machine.balance();
+    }
+</script>
+</body>
+</html>

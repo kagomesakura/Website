@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Kagome Miller</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="static/theme.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#myPage">KAGOME</a></li>
+          <li><a href="#portfolio">PORTFOLIO</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+          <li><a href="#links">LINKS</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="jumbotron text-center">
+  <h1>Kagome</h1>
+  <p>A Passion For Code</p>
+</div>
+<!-- Container (About Section) -->
+<div id="top" class="container-fluid">
+<div class="row">
+    <div class="col-sm-8">
+      <h2>About Me</h2><br>
+      <p> Currently enrolled in MITx's Computational Thinking using Python:
+          Introduction to Computer Science and Programming Using Python.</P>
+          <p>Graduate from PDX Code Guild.</p>
+      <p> JavaScript, CSS, Django, Python, HTML, and Social Media Marketing.</p>
+    </div>
+    <div class="col-sm-4">
+        <img src="images/me.jpg" title="Kagome" class="rounded-corners">
+    </div>
+  </div>
+</div>
+<div id="portfolio" class="text-center">
+    <h2>Portfolio</h2>
+    </div>
+<!-- Container (Portfolio Section) -->
+<div id="portfolio" class="container-fluid text-center portfolioimg">
+  <div class="row text-center slideanim">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <a href="https://kagomesakura.github.io/todo/" target="_blank">
+          <img src="images/chores.jpg" alt="ToDo" class="rounded-corners"></a>
+        <br><p><strong>To Do List</strong></p>
+        <!--<p>Keep Track Of Daily Activities</p>-->
+      </div>
+    </div>
+  <div class="col-sm-4">
+      <div class="thumbnail">
+        <a href="https://kagomesakura.github.io/atm/" target="_blank">
+          <img src="images/bankthumb.jpg" alt="ATM" class="rounded-corners"></a>
+          <br><p><strong>Balance Your Bank Account</strong></p>
+        <!--<p>Checks and Balances</p>-->
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <a href="https://kagomesakura.github.io/localtime/" target="_blank">
+          <img src="images/portlandthumb.png" alt="Local Time" class="rounded-corners"></a>
+        <br><p><strong>Local Oregon Time</strong></p>
+      </div>
+    </div>
+  </div>
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid text-center">
+  <h2>CONTACT</h2>
+  <div class="row">
+      <p><span class="glyphicon glyphicon-phone"></span>971-998-0503</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Portland, OR</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;<a href="mailto:kagomemiller@gmail.com?subject=Website Inquiry">kagomemiller@gmail.com</a></p>
+      </div>
+    </div>
+
+    <div id="links" class="row container-fluid text-center">
+        <h2>SOCIAL MEDIA</h2>
+        <a href="https://www.twitter.com/transientflow" target="_blank">
+        <img src="images/twitter.png" title="twitter"></a>
+        <a href="https://www.github.com/kagomesakura" target="_blank">
+        <img src="images/git.png" title="github"></a>
+        <a href="https://www.kagomemiller.com" target="_blank">
+        <img src="images/ksm.png" title="kagomemiller"></a>
+      </div>
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>2021 KSM</p>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+</body>
+</html>
